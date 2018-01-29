@@ -38,14 +38,16 @@ A good teacher network is VERY VERY VERY important for training the student netw
 
 3. Using discretized mixture of logistics distribution instead of 256-way categorical distribution. Refer ro citing8's nn.py.
 
-4. Training with Adam.
+4. Modify citing6's h512_bo16.py to build original wavenet with local condition.
+
+5. Training with Adam.
 
 # Student training Step
 
 1. Modify Teacher's datafeeder to provider white noises Z. One mixture logistic, np.random.logistic(size=wav.shape)
 
-2. Modify h512_bo16.py.
+2. Modify teacher's h512_bo16.py to build parallel wavenet.
 
-3. Add power loss and cross entropy loss.
+3. Add power loss, cross entropy loss and etc...
 
 4. Restore teacher weights, and then train student.
