@@ -44,4 +44,8 @@ A good teacher network is VERY VERY VERY important for training the student netw
 
 1. Modify Teacher's datafeeder to provider white noises Z. One mixture logistic, np.random.logistic(size=wav.shape)
 
-2. 
+2. Modify h512_bo16.py.
+
+3. Add power loss and cross entropy loss.
+
+4. Restore teacher weights, and then train student.
