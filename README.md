@@ -1,3 +1,3 @@
 # Parallel-Wavenet
 
-Parallel wavenet have been implemented, codes will be placed here soon.
+Parallel wavenet has been implemented, codes will be placed here soon.
