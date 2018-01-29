@@ -54,13 +54,21 @@ A good teacher network is VERY VERY VERY important for training the student netw
 
 
 # Pseudo-code of original wavenet
-  Data: 
+  
+  Data:
+  
         encoding: mel-scale spectrogram  
+  
         x: real wav
+        
         θe: encoding's parameters
+        
         θt: teacher's parameters
+        
   Result:
+        
         mu_t: teacher's output
+        
         scale_t: teacher's output
   
   
