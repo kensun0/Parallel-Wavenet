@@ -26,11 +26,16 @@ Citing 9: https://github.com/keithito/tacotron
 
 You should read citing6's codes first, then you can implement the original wavenet.
 
-As to parallel wavenet's Teacher, you should use discretized mixture of logistics distribution instead of 256-way categorical distribution.
+We use mel-scale spectrogram transforming from real wav as local conditions for convenience. You can train a tacotron model to 
 
+get predicted mel-scale spectrogram.
 
-# Step
+A good teacher network is VERY VERY VERY important for training the student network.
+
+# Teacher training Step
 
 1. Replace casual conv1d in citing6(masked.py) with Keras's implement.
 
-2. Modify datafeeder
+2. Implement a datafeeder 
+
+ using discretized mixture of logistics distribution instead of 256-way categorical distribution.
