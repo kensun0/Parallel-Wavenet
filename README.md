@@ -71,22 +71,40 @@ A good teacher network is VERY VERY VERY important for training the student netw
         
         scale_t: teacher's output
   
+  Process:
+        
+        
+  
   
         
 # Pseudo-code of parallel wavenet
+  
   Data: 
+        
         encoding: mel-scale spectrogram 
+        
         z: white noise, z~logistic distribution L（0,1）, one mixture 
+        
         x: real wav
+        
         θe: encoding's parameters
+        
         θt: teacher's parameters
+        
         θs: student's parameters
+        
         mu_t: teacher's output
+        
         scale_t: teacher's output
+  
   Result: 
+        
         mu_s: student's output
+        
         scale_s: student's output
   
-  
+  Process:
+    
+        
   
 
