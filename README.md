@@ -26,16 +26,22 @@ Citing 9: https://github.com/keithito/tacotron
 
 You should read citing6's codes first, then you can implement the original wavenet.
 
-We use mel-scale spectrogram transforming from real wav as local conditions for convenience. You can train a tacotron model to 
-
-get predicted mel-scale spectrogram.
+We use mel-scale spectrogram transforming from real wav as local conditions for convenience. You can train a tacotron model to get predicted mel-scale spectrogram.
 
 A good teacher network is VERY VERY VERY important for training the student network.
 
 # Teacher training Step
 
-1. Replace casual conv1d in citing6(masked.py) with Keras's implement.
+1. Replace casual conv1d in citing6(masked.py) with Keras's implement. Refer to citing7.
 
-2. Implement a datafeeder 
+2. Implement a datafeeder to provide mel and wav. Refer to citing9's datafeeder.py.
 
- using discretized mixture of logistics distribution instead of 256-way categorical distribution.
+3. Using discretized mixture of logistics distribution instead of 256-way categorical distribution. Refer ro citing8's nn.py.
+
+4. Training with Adam.
+
+# Student training Step
+
+1. Modify Teacher's datafeeder to provider white noises Z. One mixture logistic, np.random.logistic(size=wav.shape)
+
+2. 
