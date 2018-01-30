@@ -121,50 +121,49 @@ A good teacher network is VERY VERY VERY important for training the student netw
         scale_s: student's output
   
   Procedure:
-  		
-        for x,z,encoding in X,Z,ENCODING:
+  		for x,z,encoding in X,Z,ENCODING:
+
+			new_enc = F(encoding,θe)
 				
-		    new_enc = F(encoding,θe)
+			### student ###
 				
-				### student ###
+			mu_tot=0
 				
-				mu_tot=0
+			scale_tot=1
 				
-				scale_tot=1
-				
-				for f in flow:
+			for f in flow:					
 			
-						new_z = shiftright(z)
-					
-						for i in layers-1:
-								
-								new_z_i = H_i(new_z_i,θs_i)
-  							
-  							new_z_i += new_enc
-  					
-  					mu_s_f, scale_s_f = H_i(new_z_i,θs_i)		#last layer
-						
-						mu_tot = mu_s_f + mu_tot*scale_s_f
-						
-						scale_tot = scale_tot*scale_s_f
-						
-						z = z*scale_s_f + mu_s_f 
-				
-				sample_x = logistic(mu_tot,scale_tot)
-				
-				Power_loss = (|stft(sample_x)|-|stft(x)|)**2
-				
-				H(Ps)_loss = log(scale_tot) + 2
-				
-				### teacher ###
-				
 				new_z = shiftright(z)
+					
+				for i in layers-1:
+			
+					new_z_i = H_i(new_z_i,θs_i)
+  							
+  					new_z_i += new_enc
+  					
+  				mu_s_f, scale_s_f = H_i(new_z_i,θs_i)		#last layer
+						
+				mu_tot = mu_s_f + mu_tot*scale_s_f
+						
+				scale_tot = scale_tot*scale_s_f
+			
+				z = z*scale_s_f + mu_s_f 
+				
+			sample_x = logistic(mu_tot,scale_tot)
+				
+			Power_loss = (|stft(sample_x)|-|stft(x)|)**2
+				
+			H(Ps)_loss = log(scale_tot) + 2
+				
+			### teacher ###
+				
+			new_z = shiftright(z)
   			
   			for i in layers-1:
   			
-  					new_z_i = H_i(new_z_i,θt_i)
+  				new_z_i = H_i(new_z_i,θt_i)
   					
-  					new_z_i += new_enc
+  				new_z_i += new_enc
   			
   			mu_t, scale_t = H_i(new_z_i,θt_i)  #last layer
   			
