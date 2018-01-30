@@ -81,15 +81,15 @@ A good teacher network is VERY VERY VERY important for training the student netw
   				
             for i in layers-1:
   					
-              new_x_i = H_i(new_x_i,θt_i)
+                new_x_i = H_i(new_x_i,θt_i)
   					
-              new_x_i += new_enc
+                new_x_i += new_enc
   				
-            mu_t, scale_t = H_i(new_x_i,θt_i)  #last layer
+            mu_t, scale_t = H_i(new_x_i,θt_i)   #last layer
   				
-            predict_x = logistic(mu_t,scale_t) #citing8
+            predict_x = logistic(mu_t,scale_t)  #citing8
   				
-            loss = cross_entropy(predict_x,x)	 #citing8
+            loss = cross_entropy(predict_x,x)   #citing8
         
   
   
