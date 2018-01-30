@@ -122,9 +122,9 @@ A good teacher network is VERY VERY VERY important for training the student netw
   
   Procedure:
   		
-		for x,z,encoding in X,Z,ENCODING:
+        for x,z,encoding in X,Z,ENCODING:
 				
-				new_enc = F(encoding,θe)
+		    new_enc = F(encoding,θe)
 				
 				### student ###
 				
