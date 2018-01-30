@@ -71,8 +71,25 @@ A good teacher network is VERY VERY VERY important for training the student netw
         
         scale_t: teacher's output
   
-  Process:
+  Procedure:
         
+        for x,encoding in X,ENCODING：
+  			  
+            new_x = shiftright(x)
+  				
+            new_enc = F(encoding,θe)
+  				
+            for i in layers-1:
+  					
+              new_x_i = H_i(new_x_i,θt_i)
+  					
+              new_x_i += new_enc
+  				
+            mu_t, scale_t = H_i(new_x_i,θt_i)  #last layer
+  				
+            predict_x = logistic(mu_t,scale_t) #citing8
+  				
+            loss = cross_entropy(predict_x,x)	 #citing8
         
   
   
@@ -103,7 +120,7 @@ A good teacher network is VERY VERY VERY important for training the student netw
         
         scale_s: student's output
   
-  Process:
+  Procedure:
     
         
   
