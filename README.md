@@ -133,9 +133,10 @@ A good teacher network is VERY VERY VERY important for training the student netw
 		scale_tot=1
 		
 		for f in flow:					
-			
-		    new_z = shiftright(z)
-					
+		    ####
+		    # maybe there is no need to shift according to https://arxiv.org/abs/1807.07281
+		    new_z = shiftright(z)  
+		    ####		
 		    for i in layers-1:
 			
 			    new_z_i = H_i(new_z_i,θs_i)
