@@ -150,7 +150,7 @@ A good teacher network is VERY VERY VERY important for training the student netw
 				
 		sample_x = logistic(mu_tot,scale_tot)
 				
-		Power_loss = (|stft(sample_x)|-|stft(x)|)**2
+		Power_loss = (|stft(z)|-|stft(x)|)**2
 				
 		H(Ps)_loss = log(scale_tot) + 2
 				
